@@ -196,8 +196,26 @@ namespace Capstone.Classes
             int fifties = 0;
 
             decimal coinMoney = CurrentBalance;
-            coinMoney = ((CurrentBalance - (int)CurrentBalance) * 100);
+            coinMoney = ((CurrentBalance - (int)(CurrentBalance)) * 100);
 
+            //Change calc
+            if ((int)coinMoney >= 25)
+            {
+                quarters = ((int)coinMoney / 25);
+                coinMoney -= (quarters * 25);
+            }
+            if ((int)coinMoney >= 10)
+            {
+                dimes = ((int)coinMoney / 10);
+                coinMoney -= (dimes * 10);
+            }
+            if ((int)coinMoney >= 5)
+            {
+                nickels = ((int)coinMoney / 5);
+                coinMoney -= (nickels * 5);
+            }
+
+            //Dollar calc
             if (CurrentBalance >= 50.00M)
             {
                 fifties = (int)(CurrentBalance / 50);
@@ -222,22 +240,7 @@ namespace Capstone.Classes
             {
                 ones = (int)(CurrentBalance / 1);
                 CurrentBalance -= (ones * 1);
-            }
-            if ((int)coinMoney >= 25)
-            {
-                quarters = ((int)coinMoney / 25);
-                coinMoney -= (quarters * 25);
-            }
-            if ((int)coinMoney >= 10)
-            {
-                dimes = ((int)coinMoney / 10);
-                coinMoney -= (dimes * 10);
-            }
-            if ((int)coinMoney >= 5)
-            {
-                nickels = ((int)coinMoney / 5);
-                coinMoney -= (nickels * 5);
-            }
+            }       
          
             //String Concatenation
             string change = "You received";

@@ -50,7 +50,7 @@ namespace Capstone.Classes
                     }
                     else if (userInput2 == "3")
                     {
-                        CompleteTransaction(); ;
+                        CompleteTransaction();
                     }
                 }
                 else if (userInput == "3")
